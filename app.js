@@ -3,7 +3,6 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 
-
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -23,6 +22,8 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+
+
 
 mongoose.connect('mongodb://127.0.0.1:27017/camp-site', {
     useNewUrlParser: true,
@@ -130,6 +131,7 @@ app.use((req, res, next) => {
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes)
 app.use('/campgrounds/:id/reviews', reviewRoutes)
+
 
 app.get('/', (req, res) => {
     res.render('home')
