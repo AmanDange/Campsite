@@ -2,7 +2,6 @@ if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
-
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -17,12 +16,9 @@ const User = require('./models/user');
 const helmet = require('helmet');
 
 const mongoSanitize = require('express-mongo-sanitize');
-
-
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
-
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/camp-site', {
